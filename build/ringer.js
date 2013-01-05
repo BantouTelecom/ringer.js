@@ -20,8 +20,8 @@
 
     // defaults
     this.config = {
-      ringtone: 'https://spectrum.att.io/audio/ringtone.wav',
-      ringbackTone: 'https://spectrum.att.io/audio/calling.wav',
+      ringtone: 'https://js.att.io/sounds/ringtone.wav',
+      ringbackTone: 'https://js.att.io/sounds/calling.wav',
       ringtones: {},
       ringbackTones: {},
       delay: 20
