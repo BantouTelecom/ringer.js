@@ -42,7 +42,7 @@ new Ringer(att, {
 
 ## Demo
 
-To see a demo, clone it and open demo.html in a browser and click the various buttons.
+To see a demo, go to https://js.att.io and run the code sample.
 
 ## Credits
 
