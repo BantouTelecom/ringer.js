@@ -2,17 +2,8 @@ var jade = require('jade'),
     uglify = require('uglify-js'),
     _ = require('underscore'),
     fs = require('fs'),
-    jadeRuntime,
-    templatefunc,
     main;
 
-try {
-    jadeRuntime = fs.readFileSync(__dirname + '/../jade/runtime.min.js', 'utf-8');
-} catch (e) {
-    jadeRuntime = fs.readFileSync(__dirname + '/node_modules/jade/runtime.min.js', 'utf-8');
-}
-
-var emitter = fs.readFileSync(__dirname + '/src/wildemitter.js', 'utf-8');
 
 // indents each line in a file by 4 spaces or whatever you pass into it
 function indent(file, indentAmount) {
@@ -47,13 +38,10 @@ function minify(name) {
 }
 
 function build(name) {
-    templatefunc = beautify(jade.compile(fs.readFileSync(__dirname + '/src/' + name + '.jade', 'utf-8'), {client: true, compileDebug: false, pretty: true}).toString());
-    main = fs.readFileSync(__dirname + '/src/' + name + '.js', 'utf-8').toString().replace("{{{templatefunc}}}", templatefunc);
-    main = main.replace("{{{jaderuntime}}}", jadeRuntime);
-    main = main.replace("{{{emitter}}}", indent(emitter, '  '));
-
+    main = fs.readFileSync(__dirname + '/src/' + name + '.js', 'utf-8');
+    
     fs.writeFileSync(__dirname + '/build/' + name + '.js', main);
     minify(name);
 }
 
-build('candybar');
+build('ringer');

@@ -1,4 +1,4 @@
-#Ringer.js
+# Ringer.js
 
 Sound effects and ringtones for att.js
 
@@ -6,9 +6,7 @@ Sound effects and ringtones for att.js
 
 ```js
 // init your att object from att.js
-var att = $.att({
-    apiKey: "YOUR OATH TOKEN"
-});
+var att = $.att({apiKey: "YOUR OATH TOKEN"});
 
 // just pass it your att object
 new Ringer(att);
@@ -26,21 +24,7 @@ new Ringer(att, {
 
 ### Caller specific ringtones
 
-`ringtone` and `ringbacktone` can also be a function so you can do custom ringtones for different numbers. The only requirement is that the function return the URL for the wav file to play. For example:
-
-```js
-new Ringer(att, {
-    ringtone: function (call) {
-        if (somePhoneNumberLookup(call.initiator) === 'BATMAN') {
-            return '/nana-nana-nana-batman.wav';
-        } else {
-            return '/normal.wav';
-        }
-    }
-});
-```
-
-You can also pass a hash of numbers and urls for quickly setting a bunch of different custom ringtones. 
+You can pass a hash of numbers and urls for quickly setting a bunch of different custom ringtones. 
 
 If they're not found in that hash, the default will be used.
 
