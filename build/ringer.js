@@ -81,7 +81,7 @@
 
   Ringer.prototype.play = function (name) {
     var sound = this.sounds[name];
-    if (sound) {
+    if (sound && sound.readyState == 4) {
       sound.currentTime = 0;
       sound.play();
     }
@@ -89,7 +89,7 @@
 
   Ringer.prototype.stop = function (name) {
     var sound = this.sounds[name];
-    if (sound) {
+    if (sound && sound.readyState == 4) {
       sound.pause();
       sound.currentTime = 0;
     }
